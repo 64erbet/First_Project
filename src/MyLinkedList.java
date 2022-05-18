@@ -1,53 +1,73 @@
-public class MyLinkedList {
+import java.util.List;
 
-    private static int size = 0;
+public class MyLinkedList implements List {
 
-    public static int getSize() {
-        return size;
-    }
+    private class Node {
+        Object value;
+        Object next;
+        Object previous;
 
-    public static Object getFirst() {
-        return first;
-    }
-
-    public static void setFirst(Object first) {
-        MyLinkedList.first = first;
-    }
-
-    public static Object getLast() {
-        return last;
-    }
-
-    public static void setLast(Object last) {
-        MyLinkedList.last = last;
-    }
-
-    private static Object first;
-    private static Object last;
-
-    public static void add(Object value) {
-        if (getSize() == 0) {
-            new Node(null, value, null);
-        } else {
-            new Node(Node.getPrevious(), value, null);
+        Node(Object previous, Object value, Object next) {
+            this.value = value;
+            this.next = next;
+            this.previous = previous;
         }
-        size++;
-        System.out.println("Добавили елемент В КОНЕЦ");
     }
 
-    public static remove(int index) {
+    public int kol_elementov = 0;
+
+
+    @Override
+    public int size() {
+        return (kol_elementov);
+    }
+
+    @Override
+    public boolean add(Object o) {
+        boolean rez = false;
+
+        if (kol_elementov == 0) {
+            Node sam_node = new Node(null, o, null);
+
+            kol_elementov ++;
+            rez = true;
+        } else
+            if (kol_elementov == 1) {
+            Node sam_node = new Node(this.get(0), o, null);
+
+            kol_elementov ++;
+            rez = true;
+            } else
+                if (kol_elementov > 1) {
+                    Node sam_node = new Node(this.get(kol_elementov-2), o, null);
+
+                    kol_elementov ++;
+                    rez = true;
+                }
+
+        return rez;
+    }
+
+    @Override
+    public boolean remove(int index) {
+        boolean rez = false;
+
+        for(int i=0; i<this.size(); i++) {
+            if (i == index) {
+
+            }
+        }
+
+        return rez;
+    }
+
+    @Override
+    public void clear() {
 
     }
 
-    public static clear() {
-
-    }
-
-    public static size() {
-
-    }
-
-    public static get(int index) {
-
+    @Override
+    public Object get(int index) {
+        return null;
     }
 }
