@@ -52,11 +52,11 @@ public class MyLinkedList implements List {
     public boolean remove(int index) {
         boolean rez = false;
 
-        for(int i=0; i<this.size(); i++) {
-            if (i == index) {
+            Object sam_element = this.get(index)
 
-            }
-        }
+
+            kol_elementov--;
+            rez = true;
 
         return rez;
     }
